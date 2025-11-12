@@ -52,353 +52,311 @@
             padding: 8px 16px;
             border-radius: 20px;
             font-size: 0.9em;
-            margin-top: 10px;
             display: inline-block;
+            margin-top: 10px;
         }
 
         .main-content {
-            padding: 40px;
+            padding: 30px;
         }
 
         .setup-section {
-            margin-bottom: 30px;
-            padding: 20px;
             background: #f8f9fa;
-            border-radius: 10px;
+            border: 2px dashed #dee2e6;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
         }
 
         .setup-section h3 {
-            color: #333;
+            color: #495057;
             margin-bottom: 15px;
+            font-size: 1.3em;
         }
 
         .setup-controls {
             display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
             align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
         }
 
         .setup-input {
-            padding: 10px 15px;
-            border: 2px solid #ddd;
+            padding: 12px 16px;
+            border: 2px solid #dee2e6;
             border-radius: 8px;
             font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        .setup-input:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
         }
 
         .setup-button {
             background: #007bff;
             color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 12px 24px;
             border-radius: 8px;
-            cursor: pointer;
             font-size: 1em;
+            cursor: pointer;
             transition: all 0.3s ease;
         }
 
         .setup-button:hover {
             background: #0056b3;
+            transform: translateY(-1px);
         }
 
         .setup-button:disabled {
-            background: #ccc;
+            background: #6c757d;
             cursor: not-allowed;
+            transform: none;
         }
 
         .connection-status {
             padding: 8px 16px;
             border-radius: 20px;
-            font-size: 0.9em;
             font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .connection-status.disconnected {
+            background: #dc3545;
+            color: white;
+        }
+
+        .connection-status.testing {
+            background: #ffc107;
+            color: #212529;
         }
 
         .connection-status.connected {
+            background: #28a745;
+            color: white;
+        }
+
+        .ai-features {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .ai-toggle {
+            background: #e9ecef;
+            color: #495057;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .ai-toggle:hover {
+            background: #dee2e6;
+        }
+
+        .ai-toggle.enabled {
             background: #d4edda;
             color: #155724;
         }
 
-        .connection-status.disconnected {
-            background: #f8d7da;
-            color: #721c24;
-        }
-
-        .connection-status.testing {
-            background: #fff3cd;
-            color: #856404;
+        .ai-toggle.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
         }
 
         .progress {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 12px;
         }
 
         .score {
-            background: #6f42c1;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
+            font-size: 1.1em;
             font-weight: bold;
+            color: #28a745;
         }
 
         .question-count {
-            background: #fd7e14;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-weight: bold;
-        }
-
-        .ai-features {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-
-        .ai-toggle {
-            background: #28a745;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .ai-toggle.disabled {
-            background: #6c757d;
+            font-size: 1.1em;
+            color: #6c757d;
         }
 
         .question-section {
+            text-align: center;
             margin-bottom: 30px;
         }
 
         .question-text {
-            font-size: 1.4em;
+            font-size: 2em;
             color: #333;
             margin-bottom: 20px;
-            text-align: center;
-            min-height: 60px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-left: 5px solid #007bff;
         }
 
         .question-audio {
-            text-align: center;
-            margin-bottom: 20px;
+            margin-top: 20px;
         }
 
         .audio-btn {
-            background: #4ecdc4;
+            background: #17a2b8;
             color: white;
             border: none;
-            padding: 15px 25px;
-            border-radius: 50px;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 1em;
             cursor: pointer;
-            font-size: 1.1em;
             margin: 0 10px;
             transition: all 0.3s ease;
         }
 
         .audio-btn:hover {
-            background: #45b7aa;
-            transform: translateY(-2px);
+            background: #138496;
+            transform: translateY(-1px);
         }
 
         .answer-section {
             background: #f8f9fa;
-            border-radius: 15px;
+            border-radius: 12px;
             padding: 25px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .answer-display {
-            min-height: 80px;
-            font-size: 1.5em;
-            text-align: center;
-            border: 2px dashed #dee2e6;
-            border-radius: 10px;
+            font-size: 1.4em;
+            min-height: 60px;
             padding: 20px;
-            margin-bottom: 20px;
             background: white;
+            border-radius: 8px;
+            border: 2px solid #dee2e6;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
         }
 
-        .answer-display.has-text {
+        .answer-display.correct {
             border-color: #28a745;
-            background: #f8fff9;
+            background: #d4edda;
+        }
+
+        .answer-display.improvable {
+            border-color: #ffc107;
+            background: #fff3cd;
+        }
+
+        .answer-display.incorrect {
+            border-color: #dc3545;
+            background: #f8d7da;
         }
 
         .controls {
             text-align: center;
-            margin-bottom: 20px;
         }
 
         .record-btn {
-            background: #007bff;
+            background: #dc3545;
             color: white;
             border: none;
             padding: 15px 30px;
-            border-radius: 50px;
-            font-size: 1.1em;
+            border-radius: 25px;
+            font-size: 1.2em;
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
         .record-btn:hover {
-            background: #0056b3;
-            transform: translateY(-2px);
+            background: #c82333;
+            transform: scale(1.05);
         }
 
-        .record-btn.stop {
-            background: #dc3545;
+        .record-btn.recording {
+            background: #28a745;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
 
         .ai-analysis {
+            background: #e7f3ff;
+            border: 1px solid #b3d9ff;
+            border-radius: 12px;
             padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
+            margin-top: 20px;
             display: none;
         }
 
-        .ai-analysis.show {
-            display: block;
-        }
-
-        .ai-analysis.success {
-            background: #d4edda;
-            border: 1px solid #c3e6cb;
-            color: #155724;
-        }
-
-        .ai-analysis.warning {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            color: #856404;
-        }
-
-        .ai-analysis.error {
-            background: #f8d7da;
-            border: 1px solid #f5c6cb;
-            color: #721c24;
-        }
-
-        .analysis-scores {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
-        }
-
-        .score-badge {
-            background: rgba(0,0,0,0.1);
-            padding: 8px 12px;
-            border-radius: 15px;
-            font-weight: bold;
-        }
-
-        .hint-section {
-            background: #e3f2fd;
-            border: 1px solid #bbdefb;
-            border-radius: 10px;
-            padding: 15px;
-            margin-bottom: 15px;
-            display: none;
-        }
-
-        .hint-section.show {
+        .ai-analysis.active {
             display: block;
         }
 
         .feedback {
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
         }
 
         .feedback.success {
             background: #d4edda;
-            border: 1px solid #c3e6cb;
             color: #155724;
-        }
-
-        .feedback.warning {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            color: #856404;
+            border: 1px solid #c3e6cb;
         }
 
         .feedback.error {
             background: #f8d7da;
-            border: 1px solid #f5c6cb;
             color: #721c24;
+            border: 1px solid #f5c6cb;
         }
 
-        .next-question {
+        .feedback.info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+
+        .next-controls {
             text-align: center;
+            margin-top: 20px;
         }
 
         .next-btn {
-            background: #28a745;
+            background: #007bff;
             color: white;
             border: none;
-            padding: 15px 30px;
-            border-radius: 50px;
+            padding: 12px 30px;
+            border-radius: 8px;
             font-size: 1.1em;
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
         .next-btn:hover {
-            background: #218838;
-            transform: translateY(-2px);
+            background: #0056b3;
+            transform: translateY(-1px);
         }
 
-        .generate-btn {
-            background: #17a2b8;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 0.9em;
-            margin-top: 10px;
-        }
-
-        .generate-btn:hover {
-            background: #138496;
-        }
-
-        .generate-btn:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-        }
-
-        .loading {
-            opacity: 0.6;
-            pointer-events: none;
-        }
-
-        .loading::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 20px;
-            height: 20px;
-            margin: -10px 0 0 -10px;
-            border: 2px solid #ccc;
-            border-radius: 50%;
-            border-top-color: #007bff;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
+            .app-container {
+                margin: 10px;
+            }
+            
             .main-content {
                 padding: 20px;
             }
@@ -407,17 +365,13 @@
                 font-size: 2em;
             }
             
-            .answer-display {
-                font-size: 1.3em;
-            }
-
             .setup-controls {
                 flex-direction: column;
                 align-items: stretch;
             }
-
-            .analysis-scores {
-                flex-direction: column;
+            
+            .ai-features {
+                justify-content: center;
             }
         }
     </style>
@@ -426,31 +380,36 @@
     <div class="app-container">
         <div class="header">
             <h1>智能中文练习</h1>
-            <p>AI-Powered Chinese Mandarin Practice</p>
+            <p>AI-Powered Mandarin Practice</p>
             <div class="ai-badge">🤖 Powered by MiniMax AI</div>
         </div>
 
         <div class="main-content">
             <!-- AI Setup Section -->
             <div class="setup-section">
-                <h3>🚀 AI Setup (Optional but Recommended)</h3>
+                <h3>🚀 API Configuration</h3>
                 <div class="setup-controls">
                     <input type="password" id="apiKeyInput" class="setup-input" 
-                           placeholder="eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJHcm91cE5hbWUiOiJZb3UgRmlyc3QhIGlkaW9tYXMiLCJVc2VyTmFtZSI6IllvdUZpcnN0SWRpb21hcy5jb20iLCJBY2NvdW50IjoiIiwiU3ViamVjdElEIjoiMTk4ODU2OTQ2MDQ3NDEyNjUyMSIsIlBob25lIjoiIiwiR3JvdXBJRCI6IjE5ODg1Njk0NjA0Njk5MjgxMjEiLCJQYWdlTmFtZSI6IiIsIk1haWwiOiJ5b3VmaXJzdGlkaW9tYXMxQGdtYWlsLmNvbSIsIkNyZWF0ZVRpbWUiOiIyMDI1LTExLTEzIDAyOjQ4OjM2IiwiVG9rZW5UeXBlIjoxLCJpc3MiOiJtaW5pbWF4In0.dVcKOAilY4y2cNN5LJtNyXlqGRkt0oGAS0a2vCCF6wFuqTCUFkBvYbWZjCjLV9abDi5wZL9wVRiclmm5K11CMfVUlVSG7ne_MDc7wfw0UT6ceosKXBM65Ia_pcljjgWO5a_VH8R4gjV10nk5CwZoWo3LJ7_ASZerfUwEOXwAU0_p6RVcVUL9NtH0tlRyyQsq9VFafoXSL_IMU3xB3Ca_dU2aS4JeQOfJkUogNIw0rgAT6nmtnldWSiiUSSbrnTj05V7c568egFtW5FAk1JFL09Tkuq769aOBd6wlWSgMtzqcPB00wli4MeRwrwaykHPRwC0VkZ2Amvc1tDykg825xg" 
+                           placeholder="Enter your MiniMax API key" 
+                           value="eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJHcm91cE5hbWUiOiJZb3UgRmlyc3QhIGlkaW9tYXMiLCJVc2VyTmFtZSI6IllvdUZpc3NIdGlvbWFzLmNvbSIsIkFjY291bnQiOiIiLCJzdWJqZWN0SWQiOiIxOTg4NTY5NDYwNDc0MTI2NTIxIiwiUGhvbmUiOiIiLCJHcm91cElEIjoiMTk4ODU2OTQ2MDQ2OTkyODEyMSIsIlBhZ2VOYW1lIjoiIiwibWFpbCI6InlvdWZpcnN0aWRpb21hc0BnbWFpbC5jb20iLCJDcmVhdGVUaW1lIjoiMjAyNS0xMS0xMyAwMjo0ODozNiIsIlRva2VuVHlwZSI6MSwiaXNzIjoibWluaW1heCJ9.dVcKOAilY4y2cNN5LJtNyXlqGRkt0oGAS0a2vCCF6wFuqTCUFkBvYbWZjCjLV9abDi5wZL9wVRiclmm5K11CMfVUlVSG7ne_MDc7wfw0UT6ceosKXBM65Ia_pcljjgWO5a_VH8R4gjV10nk5CwZoWo3LJ7_ASZerfUwEOXwAU0_p6RVcVUL9NtH0tlRyyQsq9VFafoXSL_IMU3xB3Ca_dU2aS4JeQOfJkUogNIw0rgAT6nmtnldWSiiUSSbrnTj05V7c568egFtW5FAk1JFL09Tkuq769aOBd6wlWSgMtzqcPB00wli4MeRwrwaykHPRwC0VkZ2Amvc1tDykg825xg"
                            style="flex: 1; min-width: 300px;">
                     <button id="testConnection" class="setup-button">Test Connection</button>
                     <div id="connectionStatus" class="connection-status disconnected">Disconnected</div>
                 </div>
-                <div class="ai-features" style="margin-top: 15px;">
+                <div class="ai-features">
                     <button id="generateQuestions" class="ai-toggle disabled" disabled>
-                        🎯 AI Generate Questions
+                        🎯 Generate AI Questions
                     </button>
                     <button id="aiAnalysis" class="ai-toggle disabled" disabled>
                         🧠 AI Analysis
                     </button>
-                    <button id="smartHints" class="ai-toggle disabled" disabled>
-                        💡 Smart Hints
+                    <button id="debugInfo" class="ai-toggle">
+                        🔍 Debug Info
                     </button>
+                </div>
+                <div id="debugPanel" style="display: none; margin-top: 15px; padding: 15px; background: #f8f9fa; border-radius: 8px;">
+                    <h4>Debug Information:</h4>
+                    <div id="debugContent" style="font-family: monospace; font-size: 0.9em; color: #666;"></div>
                 </div>
             </div>
 
@@ -460,7 +419,7 @@
             </div>
 
             <div class="question-section">
-                <div id="questionText" class="question-text"></div>
+                <div id="questionText" class="question-text">点击开始练习 (Click to start practicing)</div>
                 <div id="questionAudio" class="question-audio" style="display: none;">
                     <button class="audio-btn" id="playAudio">🔊 Play Question Audio</button>
                     <button class="audio-btn" id="repeatQuestion">🔄 Repeat Question</button>
@@ -477,140 +436,302 @@
             </div>
 
             <div id="aiAnalysisSection" class="ai-analysis"></div>
-            <div id="hintSection" class="hint-section"></div>
-            <div id="feedback" class="feedback" style="display: none;"></div>
-
-            <div class="next-question">
-                <button class="next-btn" id="nextQuestion" style="display: none;">Next Question →</button>
+            
+            <div class="next-controls">
+                <button class="next-btn" id="nextQuestion" style="display: none;">Next Question</button>
             </div>
         </div>
     </div>
 
-    <!-- Include MiniMax Integration -->
-    <script src="minimax-integration.js"></script>
-    
     <script>
-        class AIPoweredChinesePracticeApp {
-            constructor() {
-                // Configuration
-                this.minimaxAPI = null;
-                this.aiEnabled = false;
-                this.currentQuestionIndex = 0;
-                this.score = 0;
-                this.totalQuestions = 20;
-                this.isRecording = false;
-                this.recognition = null;
-                this.currentTranscript = '';
+        /**
+         * MiniMax API Integration Class - CORRECTED VERSION
+         * Fixed: Correct API URL and better error handling
+         */
+        class MiniMaxIntegration {
+            constructor(apiKey, options = {}) {
+                this.apiKey = apiKey;
+                this.baseURL = 'https://api.minimax.io/v1'; // CORRECTED URL
+                this.options = {
+                    model: options.model || 'abab6.5s-chat',
+                    temperature: options.temperature || 0.7,
+                    maxTokens: options.maxTokens || 1000,
+                    timeout: options.timeout || 30000,
+                    ...options
+                };
                 
-                // Initialize components
-                this.initializeSpeechRecognition();
-                this.initializeQuestions();
-                this.setupEventListeners();
-                this.loadCurrentQuestion();
+                this.requestQueue = [];
+                this.isProcessing = false;
+                this.rateLimiter = {
+                    requests: 0,
+                    resetTime: Date.now() + 60000
+                };
             }
 
-            initializeSpeechRecognition() {
-                if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
-                    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-                    this.recognition = new SpeechRecognition();
-                    
-                    this.recognition.continuous = true;
-                    this.recognition.interimResults = true;
-                    this.recognition.lang = 'zh-CN';
-                    this.recognition.maxAlternatives = 3;
+            /**
+             * Test connection to MiniMax API
+             */
+            async testConnection() {
+                console.log('Testing MiniMax connection...', {
+                    apiKey: this.apiKey ? `${this.apiKey.substring(0, 8)}...` : 'Not provided',
+                    baseURL: this.baseURL,
+                    model: this.options.model
+                });
 
-                    this.recognition.onstart = () => {
-                        this.isRecording = true;
-                        this.updateRecordingButton();
-                    };
-
-                    this.recognition.onresult = (event) => {
-                        let finalTranscript = '';
-                        let interimTranscript = '';
-
-                        for (let i = event.resultIndex; i < event.results.length; i++) {
-                            const transcript = event.results[i][0].transcript;
-                            if (event.results[i].isFinal) {
-                                finalTranscript += transcript;
-                            } else {
-                                interimTranscript += transcript;
+                try {
+                    const response = await this.makeRequest('/text/chatcompletion_v2', {
+                        model: this.options.model,
+                        messages: [
+                            {
+                                role: 'user',
+                                content: '请回复"连接成功"'
                             }
-                        }
-
-                        this.currentTranscript = finalTranscript || interimTranscript;
-                        this.updateAnswerDisplay();
+                        ],
+                        max_tokens: 50,
+                        temperature: 0.1
+                    });
+                    
+                    console.log('Connection test response:', response);
+                    
+                    return {
+                        success: true,
+                        response: response.choices[0].message.content,
+                        timestamp: new Date().toISOString()
                     };
-
-                    this.recognition.onerror = (event) => {
-                        console.error('Speech recognition error:', event.error);
-                        this.showFeedback('error', 'Recording Error', 'Please try speaking again or check your microphone.');
-                        this.stopRecording();
+                } catch (error) {
+                    console.error('Connection test failed:', error);
+                    return {
+                        success: false,
+                        error: error.message,
+                        details: error.toString(),
+                        timestamp: new Date().toISOString()
                     };
-
-                    this.recognition.onend = () => {
-                        if (this.isRecording) {
-                            this.recognition.start();
-                        }
-                    };
-                } else {
-                    this.showFeedback('error', 'Speech Recognition Not Supported', 
-                        'Your browser does not support speech recognition. Please use Chrome or another modern browser.');
                 }
             }
 
-            initializeQuestions() {
-                // Default questions that work without AI
-                this.questions = [
-                    {
-                        type: 'greeting',
-                        question: '你好！你好吗？',
-                        characterPrompt: '用中文回答问候 (Answer the greeting in Chinese)',
-                        expected: ['我很好', '很好', '我很好，谢谢', '很好，谢谢'],
-                        natural_responses: [
-                            { text: '我很好', natural: true },
-                            { text: '很好', natural: true },
-                            { text: '我非常好', natural: false },
-                            { text: '不好', natural: true },
-                            { text: '一般般', natural: true }
+            /**
+             * Generate questions using AI
+             */
+            async generateQuestions(userLevel, topic, difficulty = 'beginner', count = 5) {
+                const prompt = `作为中文语言老师，为HSK ${userLevel}级别学生创建关于"${topic}"主题的${count}个练习问题。
+                
+要求：
+- 只使用中文简体字，不要拼音
+- 难度：${difficulty}
+- 每个问题都要有明确的练习目的
+- 问题要自然实用
+
+请以JSON格式返回：
+{
+    "questions": [
+        {
+            "text": "问题内容",
+            "expected_answer": "预期回答示例",
+            "category": "分类",
+            "context": "使用场景"
+        }
+    ]
+}`;
+
+                try {
+                    const response = await this.makeRequest('/text/chatcompletion_v2', {
+                        model: this.options.model,
+                        messages: [
+                            {
+                                role: 'system',
+                                content: '你是一位专业的HSK中文老师，擅长创建实用的练习问题。'
+                            },
+                            {
+                                role: 'user',
+                                content: prompt
+                            }
                         ],
-                        audioText: '你好！你好吗？',
-                        context: 'Basic greeting exchange'
-                    },
-                    {
-                        type: 'introduction',
-                        question: '请介绍一下你自己。',
-                        characterPrompt: '介绍你的名字和基本信息 (Introduce your name and basic info)',
-                        expected: ['我叫', '我的名字是', '我是'],
-                        natural_responses: [
-                            { text: '我叫张三', natural: true },
-                            { text: '我的名字是李明', natural: true },
-                            { text: '我是中国人', natural: true },
-                            { text: '我的名称是王伟', natural: false },
-                            { text: '我是一个学生', natural: true }
-                        ],
-                        audioText: '请介绍一下你自己。',
-                        context: 'Self-introduction'
-                    },
-                    {
-                        type: 'family',
-                        question: '你有兄弟姐妹吗？',
-                        characterPrompt: '介绍你的家庭 (Talk about your family)',
-                        expected: ['我有一个', '我没有', '我有'],
-                        natural_responses: [
-                            { text: '我有一个哥哥', natural: true },
-                            { text: '我没有兄弟姐妹', natural: true },
-                            { text: '我有一个妹妹', natural: true },
-                            { text: '我家有三个孩子', natural: true },
-                            { text: '我是独生子女', natural: true }
-                        ],
-                        audioText: '你有兄弟姐妹吗？',
-                        context: 'Family discussion'
+                        temperature: this.options.temperature,
+                        max_tokens: this.options.maxTokens
+                    });
+
+                    const content = response.choices[0].message.content;
+                    console.log('Generated questions:', content);
+                    
+                    // Try to parse JSON response
+                    try {
+                        const jsonStart = content.indexOf('{');
+                        const jsonEnd = content.lastIndexOf('}');
+                        if (jsonStart >= 0 && jsonEnd >= 0) {
+                            const jsonContent = content.substring(jsonStart, jsonEnd + 1);
+                            const result = JSON.parse(jsonContent);
+                            return result.questions || [];
+                        }
+                    } catch (parseError) {
+                        console.warn('Failed to parse JSON, using fallback');
                     }
-                ];
+                    
+                    // Fallback: extract questions from text
+                    return this.parseQuestionsFromText(content, count);
+                    
+                } catch (error) {
+                    console.error('Error generating questions:', error);
+                    return this.getFallbackQuestions(topic, difficulty, count);
+                }
+            }
+
+            /**
+             * Make API request with error handling
+             */
+            async makeRequest(endpoint, data) {
+                await this.checkRateLimit();
+
+                const requestUrl = `${this.baseURL}${endpoint}`;
+                
+                console.log('Making request to:', requestUrl);
+                
+                const requestBody = JSON.stringify({
+                    ...data,
+                    stream: false
+                });
+
+                console.log('Request body:', requestBody);
+
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), this.options.timeout);
+
+                try {
+                    const response = await fetch(requestUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Authorization': `Bearer ${this.apiKey}`,
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: requestBody,
+                        signal: controller.signal
+                    });
+
+                    clearTimeout(timeoutId);
+
+                    console.log('Response status:', response.status, response.statusText);
+                    console.log('Response headers:', Object.fromEntries(response.headers.entries()));
+
+                    if (!response.ok) {
+                        const errorText = await response.text();
+                        console.error('API Error Response:', errorText);
+                        throw new Error(`HTTP ${response.status}: ${response.statusText} - ${errorText}`);
+                    }
+
+                    const result = await response.json();
+                    console.log('API Response:', result);
+                    
+                    if (result.error) {
+                        throw new Error(result.error.message || result.error.type || 'API Error');
+                    }
+
+                    return result;
+                } catch (error) {
+                    clearTimeout(timeoutId);
+                    if (error.name === 'AbortError') {
+                        throw new Error('Request timeout');
+                    }
+                    console.error('Request failed:', error);
+                    throw error;
+                }
+            }
+
+            /**
+             * Check rate limiting
+             */
+            async checkRateLimit() {
+                const now = Date.now();
+                if (now > this.rateLimiter.resetTime) {
+                    this.rateLimiter.requests = 0;
+                    this.rateLimiter.resetTime = now + 60000;
+                }
+                
+                if (this.rateLimiter.requests >= 60) {
+                    const waitTime = this.rateLimiter.resetTime - now;
+                    console.log(`Rate limit reached, waiting ${waitTime}ms`);
+                    await new Promise(resolve => setTimeout(resolve, waitTime));
+                }
+            }
+
+            /**
+             * Parse questions from text response
+             */
+            parseQuestionsFromText(text, count) {
+                const questions = [];
+                const lines = text.split('\n');
+                
+                for (const line of lines) {
+                    if (line.trim() && questions.length < count) {
+                        questions.push({
+                            text: line.trim(),
+                            expected_answer: '',
+                            category: 'general',
+                            context: 'conversation'
+                        });
+                    }
+                }
+                
+                return questions.length > 0 ? questions : this.getFallbackQuestions('general', 'beginner', count);
+            }
+
+            /**
+             * Fallback questions when API fails
+             */
+            getFallbackQuestions(topic, difficulty, count) {
+                return [
+                    {
+                        text: `你好，很高兴认识你。你好吗？`,
+                        expected_answer: `我很好，谢谢。你呢？`,
+                        category: 'greeting',
+                        context: 'meeting someone new'
+                    },
+                    {
+                        text: `你叫什么名字？`,
+                        expected_answer: `我叫...`,
+                        category: 'introduction',
+                        context: 'personal introduction'
+                    },
+                    {
+                        text: `你来自哪里？`,
+                        expected_answer: `我来自...`,
+                        category: 'origin',
+                        context: 'talking about background'
+                    }
+                ].slice(0, count);
+            }
+        }
+
+        /**
+         * Main Application Class
+         */
+        class ChinesePracticeApp {
+            constructor() {
+                this.currentQuestion = 0;
+                this.score = 0;
+                this.isRecording = false;
+                this.recognition = null;
+                this.minimaxAPI = null;
+                this.aiEnabled = false;
+                this.questions = [];
+                this.currentTranscript = '';
+                
+                this.initializeApp();
+            }
+
+            async initializeApp() {
+                this.setupEventListeners();
+                this.initializeSpeechRecognition();
+                this.loadQuestions();
+                
+                // Auto-load saved API key
+                const savedApiKey = localStorage.getItem('minimax_api_key');
+                if (savedApiKey) {
+                    document.getElementById('apiKeyInput').value = savedApiKey;
+                }
             }
 
             setupEventListeners() {
-                // Setup section
+                // AI Setup
                 document.getElementById('testConnection').addEventListener('click', () => {
                     this.testMiniMaxConnection();
                 });
@@ -619,19 +740,16 @@
                     this.generateAIQuestions();
                 });
 
-                document.getElementById('aiAnalysis').addEventListener('click', () => {
-                    this.analyzeAnswerWithAI();
+                document.getElementById('debugInfo').addEventListener('click', () => {
+                    this.toggleDebugPanel();
                 });
 
-                document.getElementById('smartHints').addEventListener('click', () => {
-                    this.showSmartHints();
-                });
-
-                // Main app controls
+                // Recording
                 document.getElementById('startRecording').addEventListener('click', () => {
                     this.toggleRecording();
                 });
 
+                // Navigation
                 document.getElementById('nextQuestion').addEventListener('click', () => {
                     this.nextQuestion();
                 });
@@ -645,10 +763,52 @@
                 });
             }
 
+            initializeSpeechRecognition() {
+                if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+                    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+                    this.recognition = new SpeechRecognition();
+                    
+                    this.recognition.continuous = true;
+                    this.recognition.interimResults = true;
+                    this.recognition.lang = 'zh-CN';
+                    
+                    this.recognition.onresult = (event) => {
+                        let finalTranscript = '';
+                        let interimTranscript = '';
+                        
+                        for (let i = event.resultIndex; i < event.results.length; i++) {
+                            const transcript = event.results[i][0].transcript;
+                            if (event.results[i].isFinal) {
+                                finalTranscript += transcript;
+                            } else {
+                                interimTranscript += transcript;
+                            }
+                        }
+                        
+                        this.currentTranscript = finalTranscript || interimTranscript;
+                        this.updateAnswerDisplay();
+                    };
+                    
+                    this.recognition.onerror = (event) => {
+                        console.error('Speech recognition error:', event.error);
+                        this.stopRecording();
+                    };
+                    
+                    this.recognition.onend = () => {
+                        if (this.isRecording) {
+                            this.recognition.start(); // Restart if still recording
+                        }
+                    };
+                } else {
+                    console.warn('Speech recognition not supported');
+                }
+            }
+
             async testMiniMaxConnection() {
                 const apiKey = document.getElementById('apiKeyInput').value.trim();
+                
                 if (!apiKey) {
-                    alert('Please enter your MiniMax API key');
+                    this.showFeedback('error', 'API Key Required', 'Please enter your MiniMax API key');
                     return;
                 }
 
@@ -666,204 +826,88 @@
                         statusElement.textContent = 'Connected ✓';
                         statusElement.className = 'connection-status connected';
                         
+                        // Save API key
+                        localStorage.setItem('minimax_api_key', apiKey);
+                        
                         // Enable AI features
                         this.enableAIFeatures();
                         
                         this.showFeedback('success', 'AI Connected!', 
-                            'MiniMax API connection successful. AI features are now available.');
+                            `Connection successful! API responded: "${result.response}"`);
+                            
+                        this.updateDebugInfo('Connection successful', result);
+                        
                     } else {
-                        throw new Error(result.error);
+                        throw new Error(result.error || 'Unknown error');
                     }
                 } catch (error) {
                     console.error('Connection test failed:', error);
                     statusElement.textContent = 'Failed ✗';
                     statusElement.className = 'connection-status disconnected';
+                    
                     this.showFeedback('error', 'Connection Failed', 
-                        `Failed to connect to MiniMax API: ${error.message}`);
+                        `Error: ${error.message}. Please check your API key and internet connection.`);
+                        
+                    this.updateDebugInfo('Connection failed', { error: error.message, details: error.toString() });
                 }
             }
 
             enableAIFeatures() {
-                const aiButtons = document.querySelectorAll('.ai-toggle');
-                aiButtons.forEach(btn => {
-                    btn.disabled = false;
-                    btn.classList.remove('disabled');
+                const aiButtons = ['generateQuestions', 'aiAnalysis'];
+                aiButtons.forEach(buttonId => {
+                    const button = document.getElementById(buttonId);
+                    button.classList.remove('disabled');
+                    button.disabled = false;
+                    button.classList.add('enabled');
                 });
             }
 
-            async generateAIQuestions() {
-                if (!this.aiEnabled || !this.minimaxAPI) {
-                    this.showFeedback('warning', 'AI Not Available', 
-                        'Please connect to MiniMax API first.');
-                    return;
-                }
-
-                const button = document.getElementById('generateQuestions');
-                const originalText = button.textContent;
-                
-                button.textContent = 'Generating...';
-                button.disabled = true;
-                button.classList.add('loading');
-
-                try {
-                    const userLevel = 'HSK 1-2';
-                    const topic = 'daily conversation';
-                    const difficulty = 'beginner';
-                    
-                    const newQuestions = await this.minimaxAPI.generateQuestions(
-                        userLevel, topic, difficulty, 5
-                    );
-
-                    // Add generated questions to the pool
-                    this.questions.push(...newQuestions);
-                    
-                    this.showFeedback('success', 'AI Questions Generated!', 
-                        `Generated ${newQuestions.length} new questions. They will appear in rotation.`);
-                    
-                } catch (error) {
-                    console.error('Question generation failed:', error);
-                    this.showFeedback('error', 'Generation Failed', 
-                        'Failed to generate AI questions. Using default questions.');
-                } finally {
-                    button.textContent = originalText;
-                    button.disabled = false;
-                    button.classList.remove('loading');
-                }
+            toggleDebugPanel() {
+                const panel = document.getElementById('debugPanel');
+                panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
             }
 
-            async analyzeAnswerWithAI() {
-                if (!this.aiEnabled || !this.minimaxAPI) {
-                    this.showFeedback('warning', 'AI Not Available', 
-                        'Please connect to MiniMax API first.');
-                    return;
-                }
-
-                const answer = this.currentTranscript.trim();
-                if (!answer) {
-                    this.showFeedback('warning', 'No Answer', 
-                        'Please record an answer first.');
-                    return;
-                }
-
-                const question = this.getCurrentQuestion();
-                const context = question.context || question.question;
-
-                try {
-                    const analysis = await this.minimaxAPI.analyzePronunciation(
-                        context, answer, context
-                    );
-
-                    this.displayAIAnalysis(analysis);
-                    
-                } catch (error) {
-                    console.error('AI analysis failed:', error);
-                    this.showFeedback('error', 'Analysis Failed', 
-                        'Failed to analyze with AI. Using basic analysis.');
-                }
+            updateDebugInfo(title, data) {
+                const debugContent = document.getElementById('debugContent');
+                const timestamp = new Date().toLocaleTimeString();
+                debugContent.innerHTML = `
+                    <div><strong>${timestamp} - ${title}:</strong></div>
+                    <div>${JSON.stringify(data, null, 2)}</div>
+                    <hr style="margin: 10px 0;">
+                ` + debugContent.innerHTML;
             }
 
-            async showSmartHints() {
-                if (!this.aiEnabled || !this.minimaxAPI) {
-                    this.showFeedback('warning', 'AI Not Available', 
-                        'Please connect to MiniMax API first.');
-                    return;
-                }
-
-                const userAnswer = this.currentTranscript.trim();
-                const question = this.getCurrentQuestion();
-                
-                if (!userAnswer) {
-                    this.showFeedback('warning', 'No Answer', 
-                        'Please record an answer first to get hints.');
-                    return;
-                }
-
-                // Simple hint generation based on expected responses
-                const expectedResponses = question.expected.join(' 或 ');
-                this.displayHint(`提示: 考虑包含关键词: ${expectedResponses}`);
-            }
-
-            displayAIAnalysis(analysis) {
-                const section = document.getElementById('aiAnalysisSection');
-                
-                let className = 'ai-analysis ';
-                if (analysis.pronunciation_score >= 8) {
-                    className += 'success';
-                } else if (analysis.pronunciation_score >= 6) {
-                    className += 'warning';
-                } else {
-                    className += 'error';
-                }
-
-                section.className = className + ' show';
-                
-                section.innerHTML = `
-                    <h3>🤖 AI Analysis Results</h3>
-                    <div class="analysis-scores">
-                        <div class="score-badge">Pronunciation: ${analysis.pronunciation_score}/10</div>
-                        <div class="score-badge">Tones: ${analysis.tone_score}/10</div>
-                        <div class="score-badge">Naturalness: ${analysis.naturalness_score}/10</div>
-                    </div>
-                    ${analysis.issues.length > 0 ? `<p><strong>Issues:</strong> ${analysis.issues.join(', ')}</p>` : ''}
-                    ${analysis.suggestions.length > 0 ? `<p><strong>Suggestions:</strong> ${analysis.suggestions.join(', ')}</p>` : ''}
-                    ${analysis.better_alternatives.length > 0 ? `<p><strong>Better alternatives:</strong></p><ul>${analysis.better_alternatives.map(alt => `<li>${alt}</li>`).join('')}</ul>` : ''}
-                    ${analysis.overall_feedback ? `<p><em>${analysis.overall_feedback}</em></p>` : ''}
+            showFeedback(type, title, message) {
+                const feedback = document.createElement('div');
+                feedback.className = `feedback ${type}`;
+                feedback.innerHTML = `
+                    <strong>${title}</strong><br>
+                    ${message}
                 `;
+                
+                const mainContent = document.querySelector('.main-content');
+                mainContent.insertBefore(feedback, mainContent.firstChild);
+                
+                setTimeout(() => {
+                    feedback.remove();
+                }, 5000);
             }
 
-            displayHint(hint) {
-                const section = document.getElementById('hintSection');
-                section.className = 'hint-section show';
-                section.innerHTML = `<h4>💡 AI Hint:</h4><p>${hint}</p>`;
-            }
-
-            loadCurrentQuestion() {
-                if (this.currentQuestionIndex >= this.totalQuestions) {
-                    this.showFinalScore();
-                    return;
-                }
-
-                const question = this.getCurrentQuestion();
-                
-                document.getElementById('questionText').textContent = question.question;
-                document.getElementById('currentQuestion').textContent = this.currentQuestionIndex + 1;
-                
-                this.hideFeedback();
-                this.resetRecordingState();
-                this.currentTranscript = '';
-                this.updateAnswerDisplay();
-                
-                // Show audio controls if question has audioText
-                if (question.audioText) {
-                    document.getElementById('questionAudio').style.display = 'block';
+            updateAnswerDisplay() {
+                const display = document.getElementById('answerDisplay');
+                if (this.currentTranscript) {
+                    display.textContent = this.currentTranscript || '正在识别...';
                 } else {
-                    document.getElementById('questionAudio').style.display = 'none';
-                }
-                
-                // Clear AI sections
-                document.getElementById('aiAnalysisSection').className = 'ai-analysis';
-                document.getElementById('hintSection').className = 'hint-section';
-            }
-
-            getCurrentQuestion() {
-                const index = this.currentQuestionIndex % this.questions.length;
-                return this.questions[index];
-            }
-
-            playQuestionAudio() {
-                const question = this.getCurrentQuestion();
-                if (!question.audioText) return;
-
-                if ('speechSynthesis' in window) {
-                    speechSynthesis.cancel();
-                    const utterance = new SpeechSynthesisUtterance(question.audioText);
-                    utterance.lang = 'zh-CN';
-                    utterance.rate = 0.8;
-                    speechSynthesis.speak(utterance);
+                    display.textContent = '点击开始录音说中文 (Click to start recording in Chinese)';
                 }
             }
 
             toggleRecording() {
+                if (!this.recognition) {
+                    this.showFeedback('error', 'Not Supported', 'Speech recognition is not supported in this browser');
+                    return;
+                }
+
                 if (this.isRecording) {
                     this.stopRecording();
                 } else {
@@ -872,199 +916,157 @@
             }
 
             startRecording() {
-                if (this.recognition) {
-                    try {
-                        this.recognition.start();
-                        document.getElementById('answerDisplay').textContent = '正在录音... 说中文';
-                        document.getElementById('answerDisplay').classList.add('has-text');
-                    } catch (error) {
-                        console.error('Error starting recognition:', error);
-                        this.showFeedback('error', 'Recording Failed', 'Please try again.');
-                    }
+                try {
+                    this.currentTranscript = '';
+                    this.recognition.start();
+                    this.isRecording = true;
+                    
+                    const button = document.getElementById('startRecording');
+                    button.textContent = '🔴 Stop Recording';
+                    button.classList.add('recording');
+                    
+                    this.updateAnswerDisplay();
+                    
+                    this.showFeedback('info', 'Recording Started', 'Speak in Chinese now...');
+                } catch (error) {
+                    console.error('Failed to start recording:', error);
+                    this.showFeedback('error', 'Recording Error', 'Failed to start recording: ' + error.message);
                 }
             }
 
             stopRecording() {
-                if (this.recognition && this.isRecording) {
+                if (this.recognition) {
                     this.recognition.stop();
-                    this.isRecording = false;
-                    this.updateRecordingButton();
-                    
-                    setTimeout(() => {
-                        this.analyzeAnswer();
-                    }, 1000);
                 }
-            }
-
-            updateRecordingButton() {
-                const btn = document.getElementById('startRecording');
-                if (this.isRecording) {
-                    btn.textContent = '⏹️ Stop Recording';
-                    btn.classList.add('stop');
-                } else {
-                    btn.textContent = '🎤 Start Recording';
-                    btn.classList.remove('stop');
-                }
-            }
-
-            updateAnswerDisplay() {
-                const display = document.getElementById('answerDisplay');
-                if (this.currentTranscript) {
-                    display.textContent = this.currentTranscript;
-                    display.classList.add('has-text');
-                } else {
-                    display.textContent = '点击开始录音说中文 (Click to start recording in Chinese)';
-                    display.classList.remove('has-text');
-                }
-            }
-
-            analyzeAnswer() {
-                const answer = this.currentTranscript.trim();
-                const question = this.getCurrentQuestion();
                 
-                if (!answer) {
-                    this.showFeedback('error', 'No Answer Detected', 'Please try recording your answer again.');
-                    return;
-                }
-
-                // Basic analysis if AI is not available
-                const analysis = this.compareAnswers(answer, question);
-                this.displayBasicAnalysis(analysis, question);
+                this.isRecording = false;
                 
-                if (analysis.isCorrect) {
-                    this.score += 10;
-                    document.getElementById('score').textContent = this.score;
-                }
-
-                document.getElementById('nextQuestion').style.display = 'block';
-            }
-
-            compareAnswers(userAnswer, question) {
-                let isCorrect = false;
-                let isNatural = false;
-
-                // Check if answer contains expected keywords
-                const hasExpected = question.expected.some(expected => 
-                    userAnswer.includes(expected)
-                );
-
-                // Check for natural responses
-                for (let response of question.natural_responses) {
-                    if (userAnswer.includes(response.text)) {
-                        isCorrect = hasExpected || userAnswer.includes(response.text);
-                        isNatural = response.natural;
-                        break;
-                    }
-                }
-
-                // If no exact match, consider partially correct
-                if (!isCorrect && hasExpected) {
-                    isCorrect = true;
-                }
-
-                return {
-                    isCorrect,
-                    isNatural,
-                    userAnswer
-                };
-            }
-
-            displayBasicAnalysis(analysis, question) {
-                const feedback = document.getElementById('feedback');
-                let feedbackHTML = '';
-                let feedbackClass = '';
-
-                if (analysis.isCorrect && analysis.isNatural) {
-                    feedbackClass = 'success';
-                    feedbackHTML = `
-                        <h3>✅ 回答很好！Excellent Answer!</h3>
-                        <p>你的回答自然流畅，表达地道。</p>
-                        <p><strong>你的回答:</strong> ${analysis.userAnswer}</p>
-                    `;
-                } else if (analysis.isCorrect) {
-                    feedbackClass = 'warning';
-                    feedbackHTML = `
-                        <h3>⚠️ 基本正确，但有改进空间 Mostly Correct</h3>
-                        <p>你的回答语法正确，但可以更自然。</p>
-                        <p><strong>你的回答:</strong> ${analysis.userAnswer}</p>
-                        <p><strong>更自然的说法:</strong></p>
-                        <ul>
-                            ${question.natural_responses.filter(r => r.natural).map(r => `<li>${r.text}</li>`).join('')}
-                        </ul>
-                    `;
-                } else {
-                    feedbackClass = 'error';
-                    feedbackHTML = `
-                        <h3>❌ 回答需要改进 Answer Needs Work</h3>
-                        <p>你的回答可能需要调整。</p>
-                        <p><strong>你的回答:</strong> ${analysis.userAnswer}</p>
-                        <p><strong>参考回答:</strong></p>
-                        <ul>
-                            ${question.natural_responses.filter(r => r.natural).map(r => `<li>${r.text}</li>`).join('')}
-                        </ul>
-                    `;
-                }
-
-                feedback.innerHTML = feedbackHTML;
-                feedback.className = `feedback ${feedbackClass}`;
-                feedback.style.display = 'block';
+                const button = document.getElementById('startRecording');
+                button.textContent = '🎤 Start Recording';
+                button.classList.remove('recording');
+                
+                // Show next question button after a brief delay
+                setTimeout(() => {
+                    document.getElementById('nextQuestion').style.display = 'inline-block';
+                }, 1000);
             }
 
             nextQuestion() {
-                this.currentQuestionIndex++;
-                this.loadCurrentQuestion();
+                this.currentQuestion++;
+                
+                if (this.currentQuestion >= this.questions.length) {
+                    this.showFeedback('success', 'Practice Complete!', 
+                        `Great job! Your final score: ${this.score}/${this.questions.length}`);
+                    return;
+                }
+                
+                this.displayCurrentQuestion();
                 document.getElementById('nextQuestion').style.display = 'none';
             }
 
-            showFinalScore() {
-                const percentage = Math.round((this.score / (this.totalQuestions * 10)) * 100);
-                let message = '';
-                let emoji = '';
+            displayCurrentQuestion() {
+                const question = this.questions[this.currentQuestion];
+                document.getElementById('questionText').textContent = question.text;
+                document.getElementById('currentQuestion').textContent = this.currentQuestion + 1;
+                document.getElementById('answerDisplay').textContent = 
+                    '点击开始录音说中文 (Click to start recording in Chinese)';
+                this.currentTranscript = '';
+            }
 
-                if (percentage >= 80) {
-                    message = '太棒了！你进步很大！AI助力学习效果显著！';
-                    emoji = '🎉';
-                } else if (percentage >= 60) {
-                    message = '不错！继续练习！AI建议多练习自然表达！';
-                    emoji = '👍';
-                } else {
-                    message = '别灰心，多练习就会进步！AI会帮助你更好学习！';
-                    emoji = '💪';
+            playQuestionAudio() {
+                if ('speechSynthesis' in window) {
+                    const utterance = new SpeechSynthesisUtterance(
+                        this.questions[this.currentQuestion].text
+                    );
+                    utterance.lang = 'zh-CN';
+                    utterance.rate = 0.8;
+                    speechSynthesis.speak(utterance);
+                }
+            }
+
+            async generateAIQuestions() {
+                if (!this.aiEnabled || !this.minimaxAPI) {
+                    this.showFeedback('error', 'AI Not Available', 'Please connect to AI first');
+                    return;
                 }
 
-                document.getElementById('questionText').innerHTML = `
-                    <h2>${emoji} 练习完成！Practice Complete!</h2>
-                    <p>总分: ${this.score}/${this.totalQuestions * 10} (${percentage}%)</p>
-                    <p>${message}</p>
-                `;
-                
-                document.getElementById('feedback').style.display = 'none';
-                document.getElementById('nextQuestion').style.display = 'none';
+                this.showFeedback('info', 'Generating Questions', 'Creating AI-powered questions...');
+
+                try {
+                    const aiQuestions = await this.minimaxAPI.generateQuestions(
+                        '1-2', // HSK level
+                        'daily conversation', // topic
+                        'beginner', // difficulty
+                        5 // count
+                    );
+
+                    if (aiQuestions.length > 0) {
+                        this.questions = aiQuestions;
+                        this.currentQuestion = 0;
+                        
+                        this.showFeedback('success', 'Questions Generated!', 
+                            `Generated ${aiQuestions.length} AI questions. Starting practice...`);
+                        
+                        this.displayCurrentQuestion();
+                    } else {
+                        throw new Error('No questions generated');
+                    }
+                } catch (error) {
+                    console.error('Failed to generate AI questions:', error);
+                    this.showFeedback('error', 'Generation Failed', 
+                        'Failed to generate questions: ' + error.message);
+                }
             }
 
-            showFeedback(type, title, message) {
-                const feedback = document.getElementById('feedback');
-                feedback.innerHTML = `
-                    <h3>${title}</h3>
-                    <p>${message}</p>
-                `;
-                feedback.className = `feedback ${type}`;
-                feedback.style.display = 'block';
-            }
-
-            hideFeedback() {
-                document.getElementById('feedback').style.display = 'none';
-            }
-
-            resetRecordingState() {
-                this.isRecording = false;
-                this.updateRecordingButton();
+            loadQuestions() {
+                // Default questions for when AI is not available
+                this.questions = [
+                    {
+                        text: '你好，很高兴认识你。你好吗？',
+                        expected_answer: '我很好，谢谢。你呢？',
+                        category: 'greeting',
+                        context: 'meeting someone new'
+                    },
+                    {
+                        text: '你叫什么名字？',
+                        expected_answer: '我叫...',
+                        category: 'introduction',
+                        context: 'personal introduction'
+                    },
+                    {
+                        text: '你来自哪里？',
+                        expected_answer: '我来自...',
+                        category: 'origin',
+                        context: 'talking about background'
+                    },
+                    {
+                        text: '你多大年纪？',
+                        expected_answer: '我...岁',
+                        category: 'age',
+                        context: 'personal information'
+                    },
+                    {
+                        text: '你在做什么工作？',
+                        expected_answer: '我是.../我做...',
+                        category: 'work',
+                        context: 'career discussion'
+                    }
+                ];
             }
         }
 
-        // Initialize the app when the page loads
-        window.addEventListener('load', () => {
-            new AIPoweredChinesePracticeApp();
+        // Initialize app when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new ChinesePracticeApp();
+            
+            // Auto-test connection if API key is present
+            setTimeout(() => {
+                const apiKeyInput = document.getElementById('apiKeyInput');
+                if (apiKeyInput.value.trim()) {
+                    console.log('Auto-testing connection with provided API key...');
+                    window.app.testMiniMaxConnection();
+                }
+            }, 1000);
         });
     </script>
 </body>
