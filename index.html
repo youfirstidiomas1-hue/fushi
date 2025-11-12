@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>智能中文练习 - AI-Powered Chinese Practice</title>
+    <title>练习中文 - Chinese Mandarin Practice</title>
     <style>
         * {
             margin: 0;
@@ -25,7 +25,7 @@
             background: white;
             border-radius: 20px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            max-width: 900px;
+            max-width: 800px;
             width: 100%;
             overflow: hidden;
         }
@@ -47,245 +47,47 @@
             opacity: 0.9;
         }
 
-        .ai-badge {
-            background: rgba(255,255,255,0.2);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            display: inline-block;
-            margin-top: 10px;
-        }
-
         .main-content {
-            padding: 30px;
-        }
-
-        .setup-section {
-            background: #f8f9fa;
-            border: 2px dashed #dee2e6;
-            border-radius: 12px;
-            padding: 25px;
-            margin-bottom: 25px;
-        }
-
-        .setup-section h3 {
-            color: #495057;
-            margin-bottom: 15px;
-            font-size: 1.3em;
-        }
-
-        .setup-controls {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 15px;
-        }
-
-        .setup-input {
-            padding: 12px 16px;
-            border: 2px solid #dee2e6;
-            border-radius: 8px;
-            font-size: 1em;
-            transition: all 0.3s ease;
-        }
-
-        .setup-input:focus {
-            border-color: #007bff;
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
-        }
-
-        .setup-button {
-            background: #007bff;
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-size: 1em;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .setup-button:hover {
-            background: #0056b3;
-            transform: translateY(-1px);
-        }
-
-        .setup-button:disabled {
-            background: #6c757d;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .connection-status {
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 0.9em;
-        }
-
-        .connection-status.disconnected {
-            background: #dc3545;
-            color: white;
-        }
-
-        .connection-status.testing {
-            background: #ffc107;
-            color: #212529;
-        }
-
-        .connection-status.connected {
-            background: #28a745;
-            color: white;
-        }
-
-        .ai-features {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .ai-toggle {
-            background: #e9ecef;
-            color: #495057;
-            border: none;
-            padding: 10px 16px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .ai-toggle:hover {
-            background: #dee2e6;
-        }
-
-        .ai-toggle.enabled {
-            background: #d4edda;
-            color: #155724;
-        }
-
-        .ai-toggle.disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        .progress {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
-            padding: 15px;
-            background: #f8f9fa;
-            border-radius: 12px;
-        }
-
-        .score {
-            font-size: 1.1em;
-            font-weight: bold;
-            color: #28a745;
-        }
-
-        .question-count {
-            font-size: 1.1em;
-            color: #6c757d;
+            padding: 40px;
         }
 
         .question-section {
-            text-align: center;
             margin-bottom: 30px;
         }
 
         .question-text {
-            font-size: 2em;
+            font-size: 1.4em;
             color: #333;
             margin-bottom: 20px;
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 12px;
-            border-left: 5px solid #007bff;
+            text-align: center;
+            min-height: 60px;
         }
 
         .question-audio {
-            margin-top: 20px;
+            text-align: center;
+            margin-bottom: 20px;
         }
 
         .audio-btn {
-            background: #17a2b8;
+            background: #4ecdc4;
             color: white;
             border: none;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-size: 1em;
+            padding: 15px 25px;
+            border-radius: 50px;
             cursor: pointer;
+            font-size: 1.1em;
             margin: 0 10px;
             transition: all 0.3s ease;
         }
 
         .audio-btn:hover {
-            background: #138496;
-            transform: translateY(-1px);
+            background: #45b7aa;
+            transform: translateY(-2px);
         }
 
-        .answer-section {
-            background: #f8f9fa;
-            border-radius: 12px;
-            padding: 25px;
-            margin-bottom: 25px;
-        }
-
-        .answer-display {
-            font-size: 1.4em;
-            min-height: 60px;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            border: 2px solid #dee2e6;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .answer-display.correct {
-            border-color: #28a745;
-            background: #d4edda;
-        }
-
-        .answer-display.improvable {
-            border-color: #ffc107;
-            background: #fff3cd;
-        }
-
-        .answer-display.incorrect {
-            border-color: #dc3545;
-            background: #f8d7da;
-        }
-
-        .controls {
-            text-align: center;
-        }
-
-        .record-btn {
-            background: #dc3545;
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 25px;
-            font-size: 1.2em;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .record-btn:hover {
-            background: #c82333;
-            transform: scale(1.05);
-        }
-
-        .record-btn.recording {
-            background: #28a745;
-            animation: pulse 1.5s infinite;
+        .audio-btn.recording {
+            background: #ff6b6b;
+            animation: pulse 1s infinite;
         }
 
         @keyframes pulse {
@@ -294,69 +96,154 @@
             100% { transform: scale(1); }
         }
 
-        .ai-analysis {
-            background: #e7f3ff;
-            border: 1px solid #b3d9ff;
-            border-radius: 12px;
-            padding: 20px;
-            margin-top: 20px;
-            display: none;
+        .answer-section {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
         }
 
-        .ai-analysis.active {
-            display: block;
+        .answer-display {
+            min-height: 80px;
+            font-size: 1.5em;
+            text-align: center;
+            border: 2px dashed #dee2e6;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background: white;
+        }
+
+        .answer-display.has-text {
+            border-color: #28a745;
+            background: #f8fff9;
+        }
+
+        .correct {
+            color: #28a745;
+        }
+
+        .incorrect {
+            color: #dc3545;
+            background: rgba(220, 53, 69, 0.1);
+            border-radius: 5px;
+            padding: 2px 4px;
+        }
+
+        .needs-improvement {
+            color: #ffc107;
+            background: rgba(255, 193, 7, 0.1);
+            border-radius: 5px;
+            padding: 2px 4px;
+        }
+
+        .controls {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .record-btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .record-btn:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        .record-btn.stop {
+            background: #dc3545;
         }
 
         .feedback {
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
         }
 
         .feedback.success {
             background: #d4edda;
-            color: #155724;
             border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+
+        .feedback.warning {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
         }
 
         .feedback.error {
             background: #f8d7da;
-            color: #721c24;
             border: 1px solid #f5c6cb;
+            color: #721c24;
         }
 
-        .feedback.info {
-            background: #d1ecf1;
-            color: #0c5460;
-            border: 1px solid #bee5eb;
+        .feedback h3 {
+            margin-bottom: 10px;
         }
 
-        .next-controls {
+        .next-question {
             text-align: center;
-            margin-top: 20px;
         }
 
         .next-btn {
-            background: #007bff;
+            background: #28a745;
             color: white;
             border: none;
-            padding: 12px 30px;
-            border-radius: 8px;
+            padding: 15px 30px;
+            border-radius: 50px;
             font-size: 1.1em;
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
         .next-btn:hover {
-            background: #0056b3;
-            transform: translateY(-1px);
+            background: #218838;
+            transform: translateY(-2px);
         }
 
-        @media (max-width: 768px) {
-            .app-container {
-                margin: 10px;
-            }
-            
+        .progress {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .score {
+            background: #6f42c1;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        .question-count {
+            background: #fd7e14;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        .character-prompt {
+            background: #e3f2fd;
+            border: 1px solid #bbdefb;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        @media (max-width: 600px) {
             .main-content {
                 padding: 20px;
             }
@@ -365,13 +252,8 @@
                 font-size: 2em;
             }
             
-            .setup-controls {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            
-            .ai-features {
-                justify-content: center;
+            .answer-display {
+                font-size: 1.3em;
             }
         }
     </style>
@@ -379,377 +261,396 @@
 <body>
     <div class="app-container">
         <div class="header">
-            <h1>智能中文练习</h1>
-            <p>AI-Powered Mandarin Practice</p>
-            <div class="ai-badge">🤖 Powered by MiniMax AI</div>
+            <h1>练习中文</h1>
+            <p>Chinese Mandarin Practice - HSK 1 & 2</p>
         </div>
 
         <div class="main-content">
-            <!-- AI Setup Section -->
-            <div class="setup-section">
-                <h3>🚀 API Configuration</h3>
-                <div class="setup-controls">
-                    <input type="password" id="apiKeyInput" class="setup-input" 
-                           placeholder="Enter your MiniMax API key" 
-                           value="eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJHcm91cE5hbWUiOiJZb3UgRmlyc3QhIGlkaW9tYXMiLCJVc2VyTmFtZSI6IllvdUZpc3NIdGlvbWFzLmNvbSIsIkFjY291bnQiOiIiLCJzdWJqZWN0SWQiOiIxOTg4NTY5NDYwNDc0MTI2NTIxIiwiUGhvbmUiOiIiLCJHcm91cElEIjoiMTk4ODU2OTQ2MDQ2OTkyODEyMSIsIlBhZ2VOYW1lIjoiIiwibWFpbCI6InlvdWZpcnN0aWRpb21hc0BnbWFpbC5jb20iLCJDcmVhdGVUaW1lIjoiMjAyNS0xMS0xMyAwMjo0ODozNiIsIlRva2VuVHlwZSI6MSwiaXNzIjoibWluaW1heCJ9.dVcKOAilY4y2cNN5LJtNyXlqGRkt0oGAS0a2vCCF6wFuqTCUFkBvYbWZjCjLV9abDi5wZL9wVRiclmm5K11CMfVUlVSG7ne_MDc7wfw0UT6ceosKXBM65Ia_pcljjgWO5a_VH8R4gjV10nk5CwZoWo3LJ7_ASZerfUwEOXwAU0_p6RVcVUL9NtH0tlRyyQsq9VFafoXSL_IMU3xB3Ca_dU2aS4JeQOfJkUogNIw0rgAT6nmtnldWSiiUSSbrnTj05V7c568egFtW5FAk1JFL09Tkuq769aOBd6wlWSgMtzqcPB00wli4MeRwrwaykHPRwC0VkZ2Amvc1tDykg825xg"
-                           style="flex: 1; min-width: 300px;">
-                    <button id="testConnection" class="setup-button">Test Connection</button>
-                    <div id="connectionStatus" class="connection-status disconnected">Disconnected</div>
-                </div>
-                <div class="ai-features">
-                    <button id="generateQuestions" class="ai-toggle disabled" disabled>
-                        🎯 Generate AI Questions
-                    </button>
-                    <button id="aiAnalysis" class="ai-toggle disabled" disabled>
-                        🧠 AI Analysis
-                    </button>
-                    <button id="debugInfo" class="ai-toggle">
-                        🔍 Debug Info
-                    </button>
-                </div>
-                <div id="debugPanel" style="display: none; margin-top: 15px; padding: 15px; background: #f8f9fa; border-radius: 8px;">
-                    <h4>Debug Information:</h4>
-                    <div id="debugContent" style="font-family: monospace; font-size: 0.9em; color: #666;"></div>
-                </div>
-            </div>
-
             <div class="progress">
                 <div class="score">Score: <span id="score">0</span></div>
                 <div class="question-count">Question <span id="currentQuestion">1</span>/20</div>
             </div>
 
             <div class="question-section">
-                <div id="questionText" class="question-text">点击开始练习 (Click to start practicing)</div>
-                <div id="questionAudio" class="question-audio" style="display: none;">
+                <div id="questionText" class="question-text"></div>
+                <div class="character-prompt" id="characterPrompt"></div>
+                <div class="question-audio">
                     <button class="audio-btn" id="playAudio">🔊 Play Question Audio</button>
                     <button class="audio-btn" id="repeatQuestion">🔄 Repeat Question</button>
                 </div>
             </div>
 
             <div class="answer-section">
-                <div id="answerDisplay" class="answer-display">
-                    点击开始录音说中文 (Click to start recording in Chinese)
-                </div>
+                <div id="answerDisplay" class="answer-display">点击开始录音说中文 (Click to start recording in Chinese)</div>
                 <div class="controls">
                     <button class="record-btn" id="startRecording">🎤 Start Recording</button>
                 </div>
             </div>
 
-            <div id="aiAnalysisSection" class="ai-analysis"></div>
-            
-            <div class="next-controls">
-                <button class="next-btn" id="nextQuestion" style="display: none;">Next Question</button>
+            <div id="feedback" class="feedback" style="display: none;"></div>
+
+            <div class="next-question">
+                <button class="next-btn" id="nextQuestion" style="display: none;">Next Question →</button>
             </div>
         </div>
     </div>
 
     <script>
-        /**
-         * MiniMax API Integration Class - CORRECTED VERSION
-         * Fixed: Correct API URL and better error handling
-         */
-        class MiniMaxIntegration {
-            constructor(apiKey, options = {}) {
-                this.apiKey = apiKey;
-                this.baseURL = 'https://api.minimax.io/v1'; // CORRECTED URL
-                this.options = {
-                    model: options.model || 'abab6.5s-chat',
-                    temperature: options.temperature || 0.7,
-                    maxTokens: options.maxTokens || 1000,
-                    timeout: options.timeout || 30000,
-                    ...options
-                };
-                
-                this.requestQueue = [];
-                this.isProcessing = false;
-                this.rateLimiter = {
-                    requests: 0,
-                    resetTime: Date.now() + 60000
-                };
-            }
-
-            /**
-             * Test connection to MiniMax API
-             */
-            async testConnection() {
-                console.log('Testing MiniMax connection...', {
-                    apiKey: this.apiKey ? `${this.apiKey.substring(0, 8)}...` : 'Not provided',
-                    baseURL: this.baseURL,
-                    model: this.options.model
-                });
-
-                try {
-                    const response = await this.makeRequest('/text/chatcompletion_v2', {
-                        model: this.options.model,
-                        messages: [
-                            {
-                                role: 'user',
-                                content: '请回复"连接成功"'
-                            }
-                        ],
-                        max_tokens: 50,
-                        temperature: 0.1
-                    });
-                    
-                    console.log('Connection test response:', response);
-                    
-                    return {
-                        success: true,
-                        response: response.choices[0].message.content,
-                        timestamp: new Date().toISOString()
-                    };
-                } catch (error) {
-                    console.error('Connection test failed:', error);
-                    return {
-                        success: false,
-                        error: error.message,
-                        details: error.toString(),
-                        timestamp: new Date().toISOString()
-                    };
-                }
-            }
-
-            /**
-             * Generate questions using AI
-             */
-            async generateQuestions(userLevel, topic, difficulty = 'beginner', count = 5) {
-                const prompt = `作为中文语言老师，为HSK ${userLevel}级别学生创建关于"${topic}"主题的${count}个练习问题。
-                
-要求：
-- 只使用中文简体字，不要拼音
-- 难度：${difficulty}
-- 每个问题都要有明确的练习目的
-- 问题要自然实用
-
-请以JSON格式返回：
-{
-    "questions": [
-        {
-            "text": "问题内容",
-            "expected_answer": "预期回答示例",
-            "category": "分类",
-            "context": "使用场景"
-        }
-    ]
-}`;
-
-                try {
-                    const response = await this.makeRequest('/text/chatcompletion_v2', {
-                        model: this.options.model,
-                        messages: [
-                            {
-                                role: 'system',
-                                content: '你是一位专业的HSK中文老师，擅长创建实用的练习问题。'
-                            },
-                            {
-                                role: 'user',
-                                content: prompt
-                            }
-                        ],
-                        temperature: this.options.temperature,
-                        max_tokens: this.options.maxTokens
-                    });
-
-                    const content = response.choices[0].message.content;
-                    console.log('Generated questions:', content);
-                    
-                    // Try to parse JSON response
-                    try {
-                        const jsonStart = content.indexOf('{');
-                        const jsonEnd = content.lastIndexOf('}');
-                        if (jsonStart >= 0 && jsonEnd >= 0) {
-                            const jsonContent = content.substring(jsonStart, jsonEnd + 1);
-                            const result = JSON.parse(jsonContent);
-                            return result.questions || [];
-                        }
-                    } catch (parseError) {
-                        console.warn('Failed to parse JSON, using fallback');
-                    }
-                    
-                    // Fallback: extract questions from text
-                    return this.parseQuestionsFromText(content, count);
-                    
-                } catch (error) {
-                    console.error('Error generating questions:', error);
-                    return this.getFallbackQuestions(topic, difficulty, count);
-                }
-            }
-
-            /**
-             * Make API request with error handling
-             */
-            async makeRequest(endpoint, data) {
-                await this.checkRateLimit();
-
-                const requestUrl = `${this.baseURL}${endpoint}`;
-                
-                console.log('Making request to:', requestUrl);
-                
-                const requestBody = JSON.stringify({
-                    ...data,
-                    stream: false
-                });
-
-                console.log('Request body:', requestBody);
-
-                const controller = new AbortController();
-                const timeoutId = setTimeout(() => controller.abort(), this.options.timeout);
-
-                try {
-                    const response = await fetch(requestUrl, {
-                        method: 'POST',
-                        headers: {
-                            'Authorization': `Bearer ${this.apiKey}`,
-                            'Content-Type': 'application/json',
-                            'Accept': 'application/json'
-                        },
-                        body: requestBody,
-                        signal: controller.signal
-                    });
-
-                    clearTimeout(timeoutId);
-
-                    console.log('Response status:', response.status, response.statusText);
-                    console.log('Response headers:', Object.fromEntries(response.headers.entries()));
-
-                    if (!response.ok) {
-                        const errorText = await response.text();
-                        console.error('API Error Response:', errorText);
-                        throw new Error(`HTTP ${response.status}: ${response.statusText} - ${errorText}`);
-                    }
-
-                    const result = await response.json();
-                    console.log('API Response:', result);
-                    
-                    if (result.error) {
-                        throw new Error(result.error.message || result.error.type || 'API Error');
-                    }
-
-                    return result;
-                } catch (error) {
-                    clearTimeout(timeoutId);
-                    if (error.name === 'AbortError') {
-                        throw new Error('Request timeout');
-                    }
-                    console.error('Request failed:', error);
-                    throw error;
-                }
-            }
-
-            /**
-             * Check rate limiting
-             */
-            async checkRateLimit() {
-                const now = Date.now();
-                if (now > this.rateLimiter.resetTime) {
-                    this.rateLimiter.requests = 0;
-                    this.rateLimiter.resetTime = now + 60000;
-                }
-                
-                if (this.rateLimiter.requests >= 60) {
-                    const waitTime = this.rateLimiter.resetTime - now;
-                    console.log(`Rate limit reached, waiting ${waitTime}ms`);
-                    await new Promise(resolve => setTimeout(resolve, waitTime));
-                }
-            }
-
-            /**
-             * Parse questions from text response
-             */
-            parseQuestionsFromText(text, count) {
-                const questions = [];
-                const lines = text.split('\n');
-                
-                for (const line of lines) {
-                    if (line.trim() && questions.length < count) {
-                        questions.push({
-                            text: line.trim(),
-                            expected_answer: '',
-                            category: 'general',
-                            context: 'conversation'
-                        });
-                    }
-                }
-                
-                return questions.length > 0 ? questions : this.getFallbackQuestions('general', 'beginner', count);
-            }
-
-            /**
-             * Fallback questions when API fails
-             */
-            getFallbackQuestions(topic, difficulty, count) {
-                return [
-                    {
-                        text: `你好，很高兴认识你。你好吗？`,
-                        expected_answer: `我很好，谢谢。你呢？`,
-                        category: 'greeting',
-                        context: 'meeting someone new'
-                    },
-                    {
-                        text: `你叫什么名字？`,
-                        expected_answer: `我叫...`,
-                        category: 'introduction',
-                        context: 'personal introduction'
-                    },
-                    {
-                        text: `你来自哪里？`,
-                        expected_answer: `我来自...`,
-                        category: 'origin',
-                        context: 'talking about background'
-                    }
-                ].slice(0, count);
-            }
-        }
-
-        /**
-         * Main Application Class
-         */
         class ChinesePracticeApp {
             constructor() {
-                this.currentQuestion = 0;
+                this.currentQuestionIndex = 0;
                 this.score = 0;
+                this.totalQuestions = 20;
                 this.isRecording = false;
                 this.recognition = null;
-                this.minimaxAPI = null;
-                this.aiEnabled = false;
-                this.questions = [];
                 this.currentTranscript = '';
                 
-                this.initializeApp();
+                this.initializeSpeechRecognition();
+                this.initializeQuestions();
+                this.loadCurrentQuestion();
+                this.setupEventListeners();
             }
 
-            async initializeApp() {
-                this.setupEventListeners();
-                this.initializeSpeechRecognition();
-                this.loadQuestions();
-                
-                // Auto-load saved API key
-                const savedApiKey = localStorage.getItem('minimax_api_key');
-                if (savedApiKey) {
-                    document.getElementById('apiKeyInput').value = savedApiKey;
+            initializeSpeechRecognition() {
+                if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+                    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+                    this.recognition = new SpeechRecognition();
+                    
+                    this.recognition.continuous = true;
+                    this.recognition.interimResults = true;
+                    this.recognition.lang = 'zh-CN';
+                    this.recognition.maxAlternatives = 3;
+
+                    this.recognition.onstart = () => {
+                        this.isRecording = true;
+                        this.updateRecordingButton();
+                    };
+
+                    this.recognition.onresult = (event) => {
+                        let finalTranscript = '';
+                        let interimTranscript = '';
+
+                        for (let i = event.resultIndex; i < event.results.length; i++) {
+                            const transcript = event.results[i][0].transcript;
+                            if (event.results[i].isFinal) {
+                                finalTranscript += transcript;
+                            } else {
+                                interimTranscript += transcript;
+                            }
+                        }
+
+                        this.currentTranscript = finalTranscript || interimTranscript;
+                        this.updateAnswerDisplay();
+                    };
+
+                    this.recognition.onerror = (event) => {
+                        console.error('Speech recognition error:', event.error);
+                        this.showFeedback('error', 'Recording Error', 'Please try speaking again or check your microphone.');
+                        this.stopRecording();
+                    };
+
+                    this.recognition.onend = () => {
+                        if (this.isRecording) {
+                            // Auto-restart if still recording
+                            this.recognition.start();
+                        }
+                    };
+                } else {
+                    this.showFeedback('error', 'Speech Recognition Not Supported', 
+                        'Your browser does not support speech recognition. Please use Chrome or another modern browser.');
                 }
+            }
+
+            initializeQuestions() {
+                this.questions = [
+                    {
+                        type: 'greeting',
+                        question: '你好！你好吗？',
+                        characterPrompt: '用中文回答问候 (Answer the greeting in Chinese)',
+                        expected: ['我很好', '很好', '我很好，谢谢', '很好，谢谢'],
+                        natural_responses: [
+                            { text: '我很好', natural: true },
+                            { text: '很好', natural: true },
+                            { text: '我非常好', natural: false }, // Less common
+                            { text: '不好', natural: true },
+                            { text: '一般般', natural: true }
+                        ],
+                        audioText: '你好！你好吗？'
+                    },
+                    {
+                        type: 'introduction',
+                        question: '请介绍一下你自己。',
+                        characterPrompt: '介绍你的名字和基本信息 (Introduce your name and basic info)',
+                        expected: ['我叫', '我的名字是', '我是'],
+                        natural_responses: [
+                            { text: '我叫张三', natural: true },
+                            { text: '我的名字是李明', natural: true },
+                            { text: '我是中国人', natural: true },
+                            { text: '我的名称是王伟', natural: false }, // Less natural
+                            { text: '我是一个学生', natural: true }
+                        ],
+                        audioText: '请介绍一下你自己。'
+                    },
+                    {
+                        type: 'family',
+                        question: '你有兄弟姐妹吗？',
+                        characterPrompt: '介绍你的家庭 (Talk about your family)',
+                        expected: ['我有一个', '我没有', '我有'],
+                        natural_responses: [
+                            { text: '我有一个哥哥', natural: true },
+                            { text: '我没有兄弟姐妹', natural: true },
+                            { text: '我有一个妹妹', natural: true },
+                            { text: '我家有三个孩子', natural: true },
+                            { text: '我是独生子女', natural: true }
+                        ],
+                        audioText: '你有兄弟姐妹吗？'
+                    },
+                    {
+                        type: 'age',
+                        question: '你多大了？',
+                        characterPrompt: '说出你的年龄 (Tell your age)',
+                        expected: ['我', '岁'],
+                        natural_responses: [
+                            { text: '我二十岁', natural: true },
+                            { text: '我二十五岁', natural: true },
+                            { text: '我今年三十岁', natural: true },
+                            { text: '我的年龄是二十八', natural: false }, // Less natural
+                            { text: '我已经十八岁了', natural: true }
+                        ],
+                        audioText: '你多大了？'
+                    },
+                    {
+                        type: 'nationality',
+                        question: '你来自哪里？',
+                        characterPrompt: '说出你的国籍或出生地 (Say your nationality or birthplace)',
+                        expected: ['我来自', '我是', '在'],
+                        natural_responses: [
+                            { text: '我来自北京', natural: true },
+                            { text: '我是中国人', natural: true },
+                            { text: '我在上海出生', natural: true },
+                            { text: '我的祖国是中国', natural: true },
+                            { text: '我是一个中国人', natural: true }
+                        ],
+                        audioText: '你来自哪里？'
+                    },
+                    {
+                        type: 'food',
+                        question: '你喜欢吃什么？',
+                        characterPrompt: '说你喜欢的食物 (Say what food you like)',
+                        expected: ['我喜欢吃', '我喜欢', '我喜欢喝'],
+                        natural_responses: [
+                            { text: '我喜欢吃米饭', natural: true },
+                            { text: '我喜欢面条', natural: true },
+                            { text: '我喜欢吃苹果', natural: true },
+                            { text: '我最爱吃饺子', natural: true },
+                            { text: '我不太喜欢辣的食物', natural: true }
+                        ],
+                        audioText: '你喜欢吃什么？'
+                    },
+                    {
+                        type: 'hobby',
+                        question: '你的爱好是什么？',
+                        characterPrompt: '说说你喜欢做的事情 (Tell what you like to do)',
+                        expected: ['我喜欢', '我的爱好是', '我喜欢做'],
+                        natural_responses: [
+                            { text: '我喜欢读书', natural: true },
+                            { text: '我的爱好是游泳', natural: true },
+                            { text: '我喜欢听音乐', natural: true },
+                            { text: '我爱踢足球', natural: true },
+                            { text: '我特别喜欢拍照', natural: true }
+                        ],
+                        audioText: '你的爱好是什么？'
+                    },
+                    {
+                        type: 'weather',
+                        question: '今天天气怎么样？',
+                        characterPrompt: '描述今天的天气 (Describe today\'s weather)',
+                        expected: ['今天', '天气', '很', '不错', '不好', '晴天', '下雨'],
+                        natural_responses: [
+                            { text: '今天天气很好', natural: true },
+                            { text: '今天很热', natural: true },
+                            { text: '今天在下雨', natural: true },
+                            { text: '今天有点冷', natural: true },
+                            { text: '今天阳光明媚', natural: true }
+                        ],
+                        audioText: '今天天气怎么样？'
+                    },
+                    {
+                        type: 'time',
+                        question: '现在几点了？',
+                        characterPrompt: '说出当前时间 (Tell the current time)',
+                        expected: ['现在', '点', '分'],
+                        natural_responses: [
+                            { text: '现在三点半', natural: true },
+                            { text: '现在是下午两点', natural: true },
+                            { text: '现在十点整', natural: true },
+                            { text: '现在中午十二点', natural: true },
+                            { text: '现在晚上八点', natural: true }
+                        ],
+                        audioText: '现在几点了？'
+                    },
+                    {
+                        type: 'work',
+                        question: '你的工作是什么？',
+                        characterPrompt: '说说你的职业 (Talk about your job)',
+                        expected: ['我是', '我的工作是', '我在'],
+                        natural_responses: [
+                            { text: '我是一名老师', natural: true },
+                            { text: '我的工作是工程师', natural: true },
+                            { text: '我在医院工作', natural: true },
+                            { text: '我是学生', natural: true },
+                            { text: '我是一个医生', natural: true }
+                        ],
+                        audioText: '你的工作是什么？'
+                    },
+                    {
+                        type: 'color',
+                        question: '你最喜欢什么颜色？',
+                        characterPrompt: '说出你喜欢的颜色 (Say your favorite color)',
+                        expected: ['我喜欢', '我最喜欢', '颜色'],
+                        natural_responses: [
+                            { text: '我最喜欢蓝色', natural: true },
+                            { text: '我喜欢红色', natural: true },
+                            { text: '我最爱黑色', natural: true },
+                            { text: '我喜欢白色', natural: true },
+                            { text: '我的颜色偏好是绿色', natural: false } // Less natural
+                        ],
+                        audioText: '你最喜欢什么颜色？'
+                    },
+                    {
+                        type: 'direction',
+                        question: '厕所在哪里？',
+                        characterPrompt: '指出正确的方向 (Give directions)',
+                        expected: ['在', '那边', '这里', '往', '走'],
+                        natural_responses: [
+                            { text: '厕所在那边', natural: true },
+                            { text: '从这里往左走', natural: true },
+                            { text: '厕所在二楼', natural: true },
+                            { text: '请跟我来', natural: true },
+                            { text: '在走廊的尽头', natural: true }
+                        ],
+                        audioText: '厕所在哪里？'
+                    },
+                    {
+                        type: 'shopping',
+                        question: '这个多少钱？',
+                        characterPrompt: '问价格或说价格 (Ask for or give price)',
+                        expected: ['块钱', '元', '太贵', '便宜', '买'],
+                        natural_responses: [
+                            { text: '这个十块钱', natural: true },
+                            { text: '太贵了', natural: true },
+                            { text: '太便宜了', natural: true },
+                            { text: '我要买这个', natural: true },
+                            { text: '能便宜一点吗', natural: true }
+                        ],
+                        audioText: '这个多少钱？'
+                    },
+                    {
+                        type: 'transportation',
+                        question: '你怎么来的？',
+                        characterPrompt: '说你用的交通工具 (Say how you travel)',
+                        expected: ['我坐', '我开车', '我走', '公交车', '地铁'],
+                        natural_responses: [
+                            { text: '我坐公交车来的', natural: true },
+                            { text: '我开车来的', natural: true },
+                            { text: '我走路来的', natural: true },
+                            { text: '我坐地铁', natural: true },
+                            { text: '我骑自行车', natural: true }
+                        ],
+                        audioText: '你怎么来的？'
+                    },
+                    {
+                        type: 'feeling',
+                        question: '你现在感觉怎么样？',
+                        characterPrompt: '描述你的感受 (Describe how you feel)',
+                        expected: ['我感觉', '我很', '累', '高兴', '难过', '紧张'],
+                        natural_responses: [
+                            { text: '我感觉很好', natural: true },
+                            { text: '我很累', natural: true },
+                            { text: '我今天很开心', natural: true },
+                            { text: '我有点紧张', natural: true },
+                            { text: '我有点饿', natural: true }
+                        ],
+                        audioText: '你现在感觉怎么样？'
+                    },
+                    {
+                        type: 'language',
+                        question: '你会说英语吗？',
+                        characterPrompt: '说说你的语言能力 (Talk about your language abilities)',
+                        expected: ['我会', '我不会', '会说', '不太会', '只会一点'],
+                        natural_responses: [
+                            { text: '我会说一点英语', natural: true },
+                            { text: '我不太会说英语', natural: true },
+                            { text: '我只会中文', natural: true },
+                            { text: '我英语还可以', natural: true },
+                            { text: '我不会说英语', natural: true }
+                        ],
+                        audioText: '你会说英语吗？'
+                    },
+                    {
+                        type: 'plan',
+                        question: '你明天做什么？',
+                        characterPrompt: '说说明天的计划 (Tell tomorrow\'s plans)',
+                        expected: ['明天', '我要', '计划', '去'],
+                        natural_responses: [
+                            { text: '明天我要上班', natural: true },
+                            { text: '明天我去看电影', natural: true },
+                            { text: '明天我有空', natural: true },
+                            { text: '明天我要学习', natural: true },
+                            { text: '明天我要休息', natural: true }
+                        ],
+                        audioText: '你明天做什么？'
+                    },
+                    {
+                        type: 'place',
+                        question: '你家在哪里？',
+                        characterPrompt: '说明你的居住地 (Tell where you live)',
+                        expected: ['我家在', '我住在', '地址是'],
+                        natural_responses: [
+                            { text: '我家在上海', natural: true },
+                            { text: '我住在北京市', natural: true },
+                            { text: '我住在郊区', natural: true },
+                            { text: '我家在市中心', natural: true },
+                            { text: '我的家在河边', natural: true }
+                        ],
+                        audioText: '你家在哪里？'
+                    },
+                    {
+                        type: 'comparison',
+                        question: '你和朋友有什么不同？',
+                        characterPrompt: '比较自己和朋友 (Compare yourself to a friend)',
+                        expected: ['我比他', '我们差不多', '我比她', '相同', '不同'],
+                        natural_responses: [
+                            { text: '我比他高', natural: true },
+                            { text: '我们差不多', natural: true },
+                            { text: '我比她瘦', natural: true },
+                            { text: '我们爱好不同', natural: true },
+                            { text: '我比他年轻', natural: true }
+                        ],
+                        audioText: '你和朋友有什么不同？'
+                    },
+                    {
+                        type: 'health',
+                        question: '你最近身体怎么样？',
+                        characterPrompt: '谈论健康状况 (Talk about health)',
+                        expected: ['我最近', '身体', '健康', '不舒服', '感冒'],
+                        natural_responses: [
+                            { text: '我最近身体很好', natural: true },
+                            { text: '我最近有点感冒', natural: true },
+                            { text: '我最近睡眠不好', natural: true },
+                            { text: '我最近在锻炼', natural: true },
+                            { text: '我最近很忙', natural: true }
+                        ],
+                        audioText: '你最近身体怎么样？'
+                    }
+                ];
             }
 
             setupEventListeners() {
-                // AI Setup
-                document.getElementById('testConnection').addEventListener('click', () => {
-                    this.testMiniMaxConnection();
-                });
-
-                document.getElementById('generateQuestions').addEventListener('click', () => {
-                    this.generateAIQuestions();
-                });
-
-                document.getElementById('debugInfo').addEventListener('click', () => {
-                    this.toggleDebugPanel();
-                });
-
-                // Recording
                 document.getElementById('startRecording').addEventListener('click', () => {
                     this.toggleRecording();
                 });
 
-                // Navigation
                 document.getElementById('nextQuestion').addEventListener('click', () => {
                     this.nextQuestion();
                 });
@@ -763,151 +664,37 @@
                 });
             }
 
-            initializeSpeechRecognition() {
-                if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
-                    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-                    this.recognition = new SpeechRecognition();
-                    
-                    this.recognition.continuous = true;
-                    this.recognition.interimResults = true;
-                    this.recognition.lang = 'zh-CN';
-                    
-                    this.recognition.onresult = (event) => {
-                        let finalTranscript = '';
-                        let interimTranscript = '';
-                        
-                        for (let i = event.resultIndex; i < event.results.length; i++) {
-                            const transcript = event.results[i][0].transcript;
-                            if (event.results[i].isFinal) {
-                                finalTranscript += transcript;
-                            } else {
-                                interimTranscript += transcript;
-                            }
-                        }
-                        
-                        this.currentTranscript = finalTranscript || interimTranscript;
-                        this.updateAnswerDisplay();
-                    };
-                    
-                    this.recognition.onerror = (event) => {
-                        console.error('Speech recognition error:', event.error);
-                        this.stopRecording();
-                    };
-                    
-                    this.recognition.onend = () => {
-                        if (this.isRecording) {
-                            this.recognition.start(); // Restart if still recording
-                        }
-                    };
-                } else {
-                    console.warn('Speech recognition not supported');
-                }
-            }
-
-            async testMiniMaxConnection() {
-                const apiKey = document.getElementById('apiKeyInput').value.trim();
-                
-                if (!apiKey) {
-                    this.showFeedback('error', 'API Key Required', 'Please enter your MiniMax API key');
+            loadCurrentQuestion() {
+                if (this.currentQuestionIndex >= this.totalQuestions) {
+                    this.showFinalScore();
                     return;
                 }
 
-                // Update UI
-                const statusElement = document.getElementById('connectionStatus');
-                statusElement.textContent = 'Testing...';
-                statusElement.className = 'connection-status testing';
-
-                try {
-                    this.minimaxAPI = new MiniMaxIntegration(apiKey);
-                    const result = await this.minimaxAPI.testConnection();
-                    
-                    if (result.success) {
-                        this.aiEnabled = true;
-                        statusElement.textContent = 'Connected ✓';
-                        statusElement.className = 'connection-status connected';
-                        
-                        // Save API key
-                        localStorage.setItem('minimax_api_key', apiKey);
-                        
-                        // Enable AI features
-                        this.enableAIFeatures();
-                        
-                        this.showFeedback('success', 'AI Connected!', 
-                            `Connection successful! API responded: "${result.response}"`);
-                            
-                        this.updateDebugInfo('Connection successful', result);
-                        
-                    } else {
-                        throw new Error(result.error || 'Unknown error');
-                    }
-                } catch (error) {
-                    console.error('Connection test failed:', error);
-                    statusElement.textContent = 'Failed ✗';
-                    statusElement.className = 'connection-status disconnected';
-                    
-                    this.showFeedback('error', 'Connection Failed', 
-                        `Error: ${error.message}. Please check your API key and internet connection.`);
-                        
-                    this.updateDebugInfo('Connection failed', { error: error.message, details: error.toString() });
-                }
-            }
-
-            enableAIFeatures() {
-                const aiButtons = ['generateQuestions', 'aiAnalysis'];
-                aiButtons.forEach(buttonId => {
-                    const button = document.getElementById(buttonId);
-                    button.classList.remove('disabled');
-                    button.disabled = false;
-                    button.classList.add('enabled');
-                });
-            }
-
-            toggleDebugPanel() {
-                const panel = document.getElementById('debugPanel');
-                panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
-            }
-
-            updateDebugInfo(title, data) {
-                const debugContent = document.getElementById('debugContent');
-                const timestamp = new Date().toLocaleTimeString();
-                debugContent.innerHTML = `
-                    <div><strong>${timestamp} - ${title}:</strong></div>
-                    <div>${JSON.stringify(data, null, 2)}</div>
-                    <hr style="margin: 10px 0;">
-                ` + debugContent.innerHTML;
-            }
-
-            showFeedback(type, title, message) {
-                const feedback = document.createElement('div');
-                feedback.className = `feedback ${type}`;
-                feedback.innerHTML = `
-                    <strong>${title}</strong><br>
-                    ${message}
-                `;
+                const question = this.questions[this.currentQuestionIndex];
                 
-                const mainContent = document.querySelector('.main-content');
-                mainContent.insertBefore(feedback, mainContent.firstChild);
+                document.getElementById('questionText').textContent = question.question;
+                document.getElementById('characterPrompt').textContent = question.characterPrompt;
+                document.getElementById('currentQuestion').textContent = this.currentQuestionIndex + 1;
                 
-                setTimeout(() => {
-                    feedback.remove();
-                }, 5000);
+                this.hideFeedback();
+                this.resetRecordingState();
+                this.currentTranscript = '';
+                this.updateAnswerDisplay();
             }
 
-            updateAnswerDisplay() {
-                const display = document.getElementById('answerDisplay');
-                if (this.currentTranscript) {
-                    display.textContent = this.currentTranscript || '正在识别...';
+            playQuestionAudio() {
+                if ('speechSynthesis' in window) {
+                    speechSynthesis.cancel();
+                    const utterance = new SpeechSynthesisUtterance(this.questions[this.currentQuestionIndex].audioText);
+                    utterance.lang = 'zh-CN';
+                    utterance.rate = 0.8;
+                    speechSynthesis.speak(utterance);
                 } else {
-                    display.textContent = '点击开始录音说中文 (Click to start recording in Chinese)';
+                    this.showFeedback('error', 'Audio Not Supported', 'Your browser does not support speech synthesis.');
                 }
             }
 
             toggleRecording() {
-                if (!this.recognition) {
-                    this.showFeedback('error', 'Not Supported', 'Speech recognition is not supported in this browser');
-                    return;
-                }
-
                 if (this.isRecording) {
                     this.stopRecording();
                 } else {
@@ -916,157 +703,232 @@
             }
 
             startRecording() {
-                try {
-                    this.currentTranscript = '';
-                    this.recognition.start();
-                    this.isRecording = true;
-                    
-                    const button = document.getElementById('startRecording');
-                    button.textContent = '🔴 Stop Recording';
-                    button.classList.add('recording');
-                    
-                    this.updateAnswerDisplay();
-                    
-                    this.showFeedback('info', 'Recording Started', 'Speak in Chinese now...');
-                } catch (error) {
-                    console.error('Failed to start recording:', error);
-                    this.showFeedback('error', 'Recording Error', 'Failed to start recording: ' + error.message);
+                if (this.recognition) {
+                    try {
+                        this.recognition.start();
+                        document.getElementById('answerDisplay').textContent = '正在录音... 说中文';
+                        document.getElementById('answerDisplay').classList.add('has-text');
+                    } catch (error) {
+                        console.error('Error starting recognition:', error);
+                        this.showFeedback('error', 'Recording Failed', 'Please try again.');
+                    }
                 }
             }
 
             stopRecording() {
-                if (this.recognition) {
+                if (this.recognition && this.isRecording) {
                     this.recognition.stop();
+                    this.isRecording = false;
+                    this.updateRecordingButton();
+                    
+                    // Give a moment for final results, then analyze
+                    setTimeout(() => {
+                        this.analyzeAnswer();
+                    }, 1000);
                 }
+            }
+
+            updateRecordingButton() {
+                const btn = document.getElementById('startRecording');
+                if (this.isRecording) {
+                    btn.textContent = '⏹️ Stop Recording';
+                    btn.classList.add('stop');
+                } else {
+                    btn.textContent = '🎤 Start Recording';
+                    btn.classList.remove('stop');
+                }
+            }
+
+            updateAnswerDisplay() {
+                const display = document.getElementById('answerDisplay');
+                if (this.currentTranscript) {
+                    display.textContent = this.currentTranscript;
+                    display.classList.add('has-text');
+                } else {
+                    display.textContent = '点击开始录音说中文 (Click to start recording in Chinese)';
+                    display.classList.remove('has-text');
+                }
+            }
+
+            analyzeAnswer() {
+                const answer = this.currentTranscript.trim();
+                const question = this.questions[this.currentQuestionIndex];
                 
-                this.isRecording = false;
+                if (!answer) {
+                    this.showFeedback('error', 'No Answer Detected', 'Please try recording your answer again.');
+                    return;
+                }
+
+                const analysis = this.compareAnswers(answer, question);
+                this.displayAnalysis(analysis, question);
                 
-                const button = document.getElementById('startRecording');
-                button.textContent = '🎤 Start Recording';
-                button.classList.remove('recording');
-                
-                // Show next question button after a brief delay
-                setTimeout(() => {
-                    document.getElementById('nextQuestion').style.display = 'inline-block';
-                }, 1000);
+                if (analysis.isCorrect) {
+                    this.score += 10;
+                    document.getElementById('score').textContent = this.score;
+                }
+
+                document.getElementById('nextQuestion').style.display = 'block';
+            }
+
+            compareAnswers(userAnswer, question) {
+                let isCorrect = false;
+                let isNatural = false;
+                let errors = [];
+                let improvements = [];
+
+                // Check if answer contains expected keywords
+                const hasExpected = question.expected.some(expected => 
+                    userAnswer.includes(expected)
+                );
+
+                // Check for natural responses
+                for (let response of question.natural_responses) {
+                    if (userAnswer.includes(response.text)) {
+                        isCorrect = hasExpected;
+                        isNatural = response.natural;
+                        break;
+                    }
+                }
+
+                // If no exact match, consider partially correct
+                if (!isCorrect && hasExpected) {
+                    isCorrect = true;
+                }
+
+                // Analyze pronunciation issues (basic detection)
+                const commonMispronunciations = {
+                    'zh': 'z', 'ch': 'c', 'sh': 's',
+                    'r': 'l', 'n': 'l', 'en': 'eng'
+                };
+
+                // Simple error detection
+                if (userAnswer.length < 2) {
+                    errors.push('Answer too short');
+                }
+
+                // Check for unnatural expressions
+                if (isCorrect && !isNatural) {
+                    improvements.push('Consider using more natural expressions');
+                }
+
+                return {
+                    isCorrect,
+                    isNatural,
+                    errors,
+                    improvements,
+                    userAnswer
+                };
+            }
+
+            displayAnalysis(analysis, question) {
+                const feedback = document.getElementById('feedback');
+                let feedbackHTML = '';
+                let feedbackClass = '';
+
+                if (analysis.isCorrect && analysis.isNatural) {
+                    feedbackClass = 'success';
+                    feedbackHTML = `
+                        <h3>✅ 回答很好！Excellent Answer!</h3>
+                        <p>你的回答自然流畅，表达地道。</p>
+                        <p><strong>你的回答:</strong> ${this.highlightText(analysis.userAnswer, 'correct')}</p>
+                    `;
+                } else if (analysis.isCorrect) {
+                    feedbackClass = 'warning';
+                    feedbackHTML = `
+                        <h3>⚠️ 基本正确，但有改进空间 Mostly Correct</h3>
+                        <p>你的回答语法正确，但可以更自然。</p>
+                        <p><strong>你的回答:</strong> ${this.highlightText(analysis.userAnswer, 'needs-improvement')}</p>
+                        ${analysis.improvements.length > 0 ? `<p><strong>建议:</strong> ${analysis.improvements.join(', ')}</p>` : ''}
+                        <p><strong>更自然的说法:</strong></p>
+                        <ul>
+                            ${question.natural_responses.filter(r => r.natural).map(r => `<li>${r.text}</li>`).join('')}
+                        </ul>
+                    `;
+                } else {
+                    feedbackClass = 'error';
+                    feedbackHTML = `
+                        <h3>❌ 回答需要改进 Answer Needs Work</h3>
+                        <p>你的回答可能需要调整。</p>
+                        <p><strong>你的回答:</strong> ${this.highlightText(analysis.userAnswer, 'incorrect')}</p>
+                        ${analysis.errors.length > 0 ? `<p><strong>问题:</strong> ${analysis.errors.join(', ')}</p>` : ''}
+                        <p><strong>参考回答:</strong></p>
+                        <ul>
+                            ${question.natural_responses.filter(r => r.natural).map(r => `<li>${r.text}</li>`).join('')}
+                        </ul>
+                    `;
+                }
+
+                feedback.innerHTML = feedbackHTML;
+                feedback.className = `feedback ${feedbackClass}`;
+                feedback.style.display = 'block';
+            }
+
+            highlightText(text, type) {
+                // Simple highlighting - in a real app, this would be more sophisticated
+                const colors = {
+                    'correct': '#28a745',
+                    'incorrect': '#dc3545',
+                    'needs-improvement': '#ffc107'
+                };
+                return `<span style="color: ${colors[type]}">${text}</span>`;
             }
 
             nextQuestion() {
-                this.currentQuestion++;
-                
-                if (this.currentQuestion >= this.questions.length) {
-                    this.showFeedback('success', 'Practice Complete!', 
-                        `Great job! Your final score: ${this.score}/${this.questions.length}`);
-                    return;
-                }
-                
-                this.displayCurrentQuestion();
+                this.currentQuestionIndex++;
+                this.loadCurrentQuestion();
                 document.getElementById('nextQuestion').style.display = 'none';
             }
 
-            displayCurrentQuestion() {
-                const question = this.questions[this.currentQuestion];
-                document.getElementById('questionText').textContent = question.text;
-                document.getElementById('currentQuestion').textContent = this.currentQuestion + 1;
-                document.getElementById('answerDisplay').textContent = 
-                    '点击开始录音说中文 (Click to start recording in Chinese)';
-                this.currentTranscript = '';
-            }
+            showFinalScore() {
+                const percentage = Math.round((this.score / (this.totalQuestions * 10)) * 100);
+                let message = '';
+                let emoji = '';
 
-            playQuestionAudio() {
-                if ('speechSynthesis' in window) {
-                    const utterance = new SpeechSynthesisUtterance(
-                        this.questions[this.currentQuestion].text
-                    );
-                    utterance.lang = 'zh-CN';
-                    utterance.rate = 0.8;
-                    speechSynthesis.speak(utterance);
-                }
-            }
-
-            async generateAIQuestions() {
-                if (!this.aiEnabled || !this.minimaxAPI) {
-                    this.showFeedback('error', 'AI Not Available', 'Please connect to AI first');
-                    return;
+                if (percentage >= 80) {
+                    message = '太棒了！你进步很大！';
+                    emoji = '🎉';
+                } else if (percentage >= 60) {
+                    message = '不错！继续练习！';
+                    emoji = '👍';
+                } else {
+                    message = '别灰心，多练习就会进步！';
+                    emoji = '💪';
                 }
 
-                this.showFeedback('info', 'Generating Questions', 'Creating AI-powered questions...');
-
-                try {
-                    const aiQuestions = await this.minimaxAPI.generateQuestions(
-                        '1-2', // HSK level
-                        'daily conversation', // topic
-                        'beginner', // difficulty
-                        5 // count
-                    );
-
-                    if (aiQuestions.length > 0) {
-                        this.questions = aiQuestions;
-                        this.currentQuestion = 0;
-                        
-                        this.showFeedback('success', 'Questions Generated!', 
-                            `Generated ${aiQuestions.length} AI questions. Starting practice...`);
-                        
-                        this.displayCurrentQuestion();
-                    } else {
-                        throw new Error('No questions generated');
-                    }
-                } catch (error) {
-                    console.error('Failed to generate AI questions:', error);
-                    this.showFeedback('error', 'Generation Failed', 
-                        'Failed to generate questions: ' + error.message);
-                }
+                document.getElementById('questionText').innerHTML = `
+                    <h2>${emoji} 练习完成！Practice Complete!</h2>
+                    <p>总分: ${this.score}/${this.totalQuestions * 10} (${percentage}%)</p>
+                    <p>${message}</p>
+                `;
+                
+                document.getElementById('characterPrompt').textContent = '恭喜完成练习！可以重新开始或刷新页面。';
+                document.getElementById('feedback').style.display = 'none';
+                document.getElementById('nextQuestion').style.display = 'none';
             }
 
-            loadQuestions() {
-                // Default questions for when AI is not available
-                this.questions = [
-                    {
-                        text: '你好，很高兴认识你。你好吗？',
-                        expected_answer: '我很好，谢谢。你呢？',
-                        category: 'greeting',
-                        context: 'meeting someone new'
-                    },
-                    {
-                        text: '你叫什么名字？',
-                        expected_answer: '我叫...',
-                        category: 'introduction',
-                        context: 'personal introduction'
-                    },
-                    {
-                        text: '你来自哪里？',
-                        expected_answer: '我来自...',
-                        category: 'origin',
-                        context: 'talking about background'
-                    },
-                    {
-                        text: '你多大年纪？',
-                        expected_answer: '我...岁',
-                        category: 'age',
-                        context: 'personal information'
-                    },
-                    {
-                        text: '你在做什么工作？',
-                        expected_answer: '我是.../我做...',
-                        category: 'work',
-                        context: 'career discussion'
-                    }
-                ];
+            showFeedback(type, title, message) {
+                const feedback = document.getElementById('feedback');
+                feedback.innerHTML = `
+                    <h3>${title}</h3>
+                    <p>${message}</p>
+                `;
+                feedback.className = `feedback ${type}`;
+                feedback.style.display = 'block';
+            }
+
+            hideFeedback() {
+                document.getElementById('feedback').style.display = 'none';
+            }
+
+            resetRecordingState() {
+                this.isRecording = false;
+                this.updateRecordingButton();
             }
         }
 
-        // Initialize app when DOM is loaded
-        document.addEventListener('DOMContentLoaded', () => {
-            window.app = new ChinesePracticeApp();
-            
-            // Auto-test connection if API key is present
-            setTimeout(() => {
-                const apiKeyInput = document.getElementById('apiKeyInput');
-                if (apiKeyInput.value.trim()) {
-                    console.log('Auto-testing connection with provided API key...');
-                    window.app.testMiniMaxConnection();
-                }
-            }, 1000);
+        // Initialize the app when the page loads
+        window.addEventListener('load', () => {
+            new ChinesePracticeApp();
         });
     </script>
 </body>
